@@ -1,0 +1,649 @@
+:root {
+  --color-dark-blue: #002a8d;
+  --color-light-blue: #0759a4;
+  --color-lead-blue: #a2b5d2;
+  --color-white: #ffffff;
+  --color-green: #6ac90f;
+  --color-light-skyblue: #ebf4ff;
+  --color-red: #ff0000;
+  --color-morado-claro: #4f6bed;
+  --color-rosado: #fabbc3;
+  --color-rojo-opaco: #a4262c;
+  --color-rojo-claro: #c7636a;
+  --color-plomo-oscuro: #adadad;
+  --color-naranja: #ca5010;
+  --colo-naranja-claro: #ef8d23;
+  --color-verde-claro: #caf0cc;
+  --color-plomo: #858585;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #ededed;
+  font-family: "Roboto", sans-serif;
+}
+
+.contenido-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  justify-content: space-between;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: var(--color-white);
+  box-shadow: 1px 2px 9px -4px #000000;
+}
+.icono-regreso {
+  margin-right: 16px;
+  cursor: pointer;
+}
+.contenido-texto {
+  height: 70px;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-dark-blue);
+  font-size: 25px;
+  color: var(--color-white);
+}
+.contenido-texto-bienvenido {
+  display: flex;
+  flex-direction: column;
+  padding: 0 53px;
+  align-items: center;
+}
+.contenido-texto-bienvenido p {
+  font-size: 16px;
+  font-weight: 300;
+}
+.icono-persona-sin-foto {
+  width: 89px;
+}
+.logo-empresa {
+  width: 88px;
+}
+
+/* estilos para la seccion de body seccion busqueda  */
+.contenido-total-seccion-busqueda {
+  margin: 10px;
+  margin-top: 30px;
+}
+.Contenido-seccion-busqueda {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-radius: 6px 6px 0 0;
+  border: 1px solid var(--color-plomo-oscuro);
+  box-shadow: 1px 2px 9px -7px #000000;
+  margin-bottom: -9px;
+}
+.Contenido-seccion-busqueda label {
+  margin-right: 12px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+.Contenido-seccion-busqueda input {
+  height: 36px;
+  width: 200px;
+  padding-left: 12px;
+  background-color: var(--color-white);
+}
+
+input:focus {
+  outline: none;
+}
+.contenido-inputs {
+  height: 36px;
+}
+.input-busqueda-factura {
+  width: 132px !important;
+  border: none;
+}
+.estados {
+  margin-left: 14px;
+  border: 2px solid var(--color-dark-blue);
+}
+.imagen-flecha {
+  width: 33px;
+  background-color: var(--color-light-blue);
+  margin-top: 0px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 98;
+}
+.imagen-actualizar {
+  width: 30px;
+  margin-right: 12px;
+}
+.columna-numero-factura {
+  display: flex;
+  align-items: center;
+  padding-top: 9px;
+}
+.cancelado-flecha {
+  margin-left: 240.5px;
+}
+.estatus-flecha {
+  margin-left: 247.5px;
+}
+.contenido-seccion-boton {
+  height: 40px;
+  width: 130px;
+  font-size: 18px;
+  background-color: var(--color-light-blue);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+}
+.imagen-logo {
+  width: 50px;
+  cursor: pointer;
+}
+/* estilos para la lista de filtrado por estatus */
+
+#mi-select-estatus .css-13cymwt-control {
+  border: 2px solid var(--color-dark-blue);
+  margin-left: 0;
+}
+#mi-select-estatus .css-1hb7zxy-IndicatorsContainer {
+  background-color: var(--color-light-blue);
+}
+#mi-select-estatus .css-1xc3v61-indicatorContainer {
+  color: var(--color-white);
+  padding: 7px;
+}
+#mi-select-estatus .css-1u9des2-indicatorSeparator {
+  width: 0;
+}
+#mi-select-estatus .css-13cymwt-control {
+  height: 30px;
+  width: 280px;
+  border-radius: 0;
+  margin-left: 12px;
+}
+#mi-select-estatus .css-t3ipsp-control {
+  width: 280px;
+  border-radius: 0;
+  color: var(--color-white);
+  border-color: var(--color-dark-blue);
+  transition: none;
+  border-width: 2px;
+  box-shadow: 0 0 0 0;
+}
+.css-t3ipsp-control:focus {
+  height: 30px;
+  width: 200px;
+}
+#mi-select-estatus .css-3w2yfm-ValueContainer {
+  overflow: auto;
+  height: 30px;
+}
+#mi-select-estatus .css-1nmdiq5-menu {
+  margin: 0;
+  border-radius: 0;
+}
+#mi-select-estatus .css-1nmdiq5-menu ul li:hover {
+  background-color: var(--color-red);
+}
+.css-qbdosj-Input {
+  margin: -2px !important;
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+}
+.lista-estatus {
+  display: none;
+  border-color: var(--color-dark-blue) !important;
+  border: 2px solid var(--color-dark-blue) !important;
+  border-width: 5px;
+  border-top: none;
+  width: 200.1px;
+  position: absolute;
+  margin-left: 81px;
+  background-color: var(--color-white);
+}
+.lista-estatus ul,
+.lista-cancelado ul {
+  list-style: none;
+}
+.lista-estatus li,
+.lista-cancelado li {
+  padding-left: 12px;
+  padding-top: 10px;
+  padding-bottom: 12px;
+  cursor: pointer;
+}
+.lista-estatus li:hover {
+  color: var(--color-white);
+  background-color: var(--color-dark-blue);
+}
+.lista-cancelado {
+  display: none;
+  border: 2px solid var(--color-dark-blue);
+  border-top: none;
+  width: 200px;
+  position: absolute;
+  margin-left: 75px;
+  background-color: var(--color-white);
+}
+.clear-button {
+  margin-left: -109px;
+  margin-top: 4px;
+  position: absolute;
+  background-color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--color-plomo);
+  border: 2px dotted var(--color-dark-blue);
+}
+/* esstilos para la seccion de filtros de cancelado  */
+buscarPorEstatus {
+  margin-left: 241px;
+}
+.clear-boton-cancelado {
+  position: absolute;
+  margin-left: 100px;
+  background-color: transparent;
+  border: none;
+  color: var(--color-plomo);
+  font-size: 20px;
+  cursor: pointer;
+  border: 2px dotted var(--color-dark-blue);
+}
+/* estilos para la seccion de filtros por fechas  */
+.total-filtro-fechas {
+  display: none;
+}
+.contenido-filtro-fechas {
+  display: flex;
+  height: 66px;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 80px;
+  border: 1px solid var(--color-plomo-oscuro);
+  margin-bottom: -5px;
+  align-items: center;
+  margin-top: 9px;
+}
+.filtro-fechas input {
+  margin-left: 20px;
+  height: 30px;
+  width: 200px;
+  padding: 0 18px;
+  cursor: pointer;
+}
+.contenido-imagenes-fechas {
+  display: flex;
+}
+.imagen-check {
+  width: 50px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+.imagen-recarga {
+  width: 50px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+.imagen-flecha-abajo {
+  width: 33px;
+  cursor: pointer;
+}
+
+/* estilos para la tabla de muestra */
+table {
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+
+td {
+  width: 100px;
+  font-size: 14px;
+}
+td,
+th {
+  padding: 5px;
+}
+.fila-tabla {
+  height: 45px;
+  border-radius: 4px;
+  background-color: var(--color-lead-blue);
+  font-size: 16px;
+  transition: all 350ms;
+}
+.fila-tabla:hover {
+  transform: scale(0.98);
+}
+.contenido-tabla {
+  width: 100%;
+}
+.tabla-seccion-header {
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+  height: 50px;
+}
+.contenido-header tr {
+  background-color: darkviolets;
+}
+.primera-columna {
+  border-radius: 6px 0 0 6px;
+  border-spacing: 0 3px;
+}
+.ultima-columna {
+  border-radius: 0 6px 6px 0;
+}
+
+tbody {
+  text-align: center;
+}
+
+/* // estilos para segun el estado que nos manden  */
+.activa {
+  background-color: var(--color-green);
+}
+.anulada {
+  background-color: var(--color-rojo-opaco);
+}
+.anulada-con-nc {
+  background-color: var(--color-naranja);
+}
+
+/* estilos segun si la factura esta cancelada o no  */
+.cancelado-si {
+  background-color: var(--color-verde-claro);
+}
+.cancelado-no {
+  background-color: var(--color-rojo-claro);
+}
+
+/* esitlos segun el estatus de la factura */
+.estatus-emitido {
+  background-color: var(--color-morado-claro);
+}
+.estatus-programado {
+  background-color: var(--color-verde-claro);
+}
+.estatus-ingresado {
+  background-color: var(--colo-naranja-claro);
+}
+.estatus-rechazado {
+  background-color: var(--color-rosado);
+}
+
+/* estilos para la segunda pagina de facturas  */
+.contenedor-total-factura {
+  border-top: 2px solid var(--color-plomo-oscuro);
+}
+.datos-factura {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 30px 30px 0 30px;
+}
+.detalle-datos-factura {
+  margin-bottom: 15px;
+}
+.titulo-detalle-factura {
+  font-size: 17px;
+  margin: 12px 0;
+  margin-bottom: 6px;
+  color: var(--color-dark-blue);
+}
+
+.detalle-factura-texto {
+  width: 95%;
+  height: 30px;
+  background-color: var(--color-white);
+  padding: 6px;
+}
+.estado-activo {
+  background-color: var(--color-green);
+}
+.estado-anulado {
+  background-color: var(--color-rojo-opaco);
+}
+.estado-anulada-con-nc {
+  background-color: var(--color-naranja);
+}
+.detalle-cancelado-si {
+  background-color: var(--color-verde-claro);
+}
+.detalle-cancelado-no {
+  background-color: var(--color-rojo-claro);
+}
+
+.detalles-representante {
+  padding: 0 30px;
+}
+
+.detalles-representante p {
+  height: 30px;
+  padding: 6px;
+  margin-right: 2%;
+  background-color: var(--color-white);
+}
+.detalles-factura-modificables {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 30px;
+}
+.input-detalle-factura {
+  width: 95%;
+  height: 30px;
+  border: 2px solid var(--color-dark-blue);
+  padding-left: 12px;
+}
+.titulo-boton-auxiliar-asignado {
+  display: flex;
+  justify-content: space-between;
+}
+.boton-personal-asignado {
+  width: 165px;
+  height: 30px;
+  margin-right: 5%;
+  margin-top: 4px;
+  color: var(--color-white);
+  background-color: var(--color-dark-blue);
+  border: none;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 7px;
+  text-decoration: none;
+}
+.boton-personal-asignado:hover {
+  margin-bottom: 6px;
+  box-shadow: 1px 2px 9px -4px #000000;
+}
+.lista-de-personal-detalles-factura {
+  width: 30.2%;
+  height: 150px;
+  display: none;
+  position: absolute;
+  border: 2px solid var(--color-dark-blue);
+  background-color: var(--color-white);
+  border-top: none;
+  overflow: auto;
+}
+.lista-de-personal-detalles-factura li {
+  list-style: none;
+  padding: 8px;
+}
+.lista-de-personal-detalles-factura li:hover {
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+}
+.contenido-enviar-comentarios {
+  margin: 0 30px;
+}
+.input-comentario-datos-adjuntos {
+  width: 98%;
+  padding-left: 20px;
+  padding-top: 22px;
+  padding-bottom: 84px;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-dark-blue);
+}
+.boton-enviar {
+  width: 100px;
+  height: 30px;
+  margin: 20px 0;
+  margin-left: 45%;
+  font-size: 20px;
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+}
+.boton-enviar:hover {
+  box-shadow: 1px 2px 9px -4px #000000;
+}
+.imagen-flecha-detalles-factura {
+  width: 28px;
+  background-color: var(--color-light-blue);
+  position: absolute;
+  margin-left: -29.5px;
+  margin-top: 1px;
+}
+.lista-estatus-detalle-factura {
+  width: 30.3%;
+  display: none;
+  position: absolute;
+  border: 2px solid var(--color-dark-blue);
+  border-top: none;
+  background-color: var(--color-white);
+}
+.lista-estatus-detalle-factura li {
+  list-style: none;
+  padding: 10px;
+}
+.lista-estatus-detalle-factura li:hover {
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+}
+
+/* estilos para la pagina de listas de auxiliares */
+.contenido-tabla-lista-de-personal {
+  display: flex;
+  justify-content: center;
+}
+.tabla-lista-de-personal {
+  width: 70%;
+}
+.contenido-agregar-personal {
+  display: flex;
+  align-items: flex-end;
+  margin: 30px 0;
+}
+.contenido-agregar-personal label {
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: var(--color-dark-blue);
+}
+.contenido-agregar-personal input {
+  height: 35px;
+  padding-left: 12px;
+  margin-top: 12px;
+}
+.contenido-agregar-personal button {
+  height: 30px;
+  width: 120px;
+  margin-left: 12px;
+  border-radius: 5px;
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+}
+.contenido-agregar-personal button:hover {
+  background-color: #0759a4;
+}
+.contenido-input {
+  width: 25%;
+}
+.lista-personal-titulo {
+  background-color: #002a8d;
+  color: var(--color-white);
+  height: 50px;
+}
+.columna-nombre {
+  width: 500px;
+}
+.contenido-total-lista-personal {
+  margin: 0 40px;
+}
+.columna-cancelado {
+  width: 150px;
+  border-left: 2px solid var(--color-white);
+}
+.contenido-tabla-lista-personal {
+  border-radius: 4px;
+  height: 40px;
+  background-color: var(--color-lead-blue);
+}
+.contenido-tabla-lista-personal:hover {
+  transform: scale(0.98);
+}
+.fila-nombre-lista-personal {
+  font-size: 16px;
+  border-radius: 10px 0 0 10px;
+}
+.fila-cancelado-lista-personal {
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+}
+.fila-cancelado-lista-personal:hover {
+  background-color: var(--color-rojo-opaco);
+  color: var(--color-white);
+}
+
+/* estilos para cuando la factura demora en cargar   */
+#contenido-recarga-factura {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#contenido-recarga-factura img {
+  width: 100px;
+  margin-bottom: 20px;
+  transform: rotate(45deg);
+  transition: transform 0.5s ease-in-out;
+  animation: rotarInfinito 1s linear infinite;
+}
+
+@keyframes rotarInfinito {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* estilos para la pagina de datos enviados */
+.imagen-regresa-datos-enviados {
+  width: 80px;
+  cursor: pointer;
+}
+.contenido-datos-enviados {
+  display: flex;
+  height: 60vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.imagen-check-datos-eviados {
+  width: 150px;
+}
