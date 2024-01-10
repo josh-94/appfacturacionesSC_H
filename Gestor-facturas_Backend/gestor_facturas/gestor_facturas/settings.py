@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-(f06o#j2+z&4#lj!wm5v+hd7v*7puwk@$%3yet8s&vii5fo=l*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# Servidor donde se aloja el código
+# Servidor donde se aloja el código, agregar '127.0.0.1' si se corre local
 ALLOWED_HOSTS = ['jolusuvi.pythonanywhere.com']
 
 # Permite la conexión con el frontend
