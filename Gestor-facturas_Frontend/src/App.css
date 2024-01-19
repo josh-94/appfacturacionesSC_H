@@ -492,6 +492,27 @@ tbody {
   background-color: var(--color-white);
   border: 2px solid var(--color-dark-blue);
 }
+.contenido-imagen-datos-adjuntos {
+  position: absolute;
+  margin-top: -5%;
+  margin-left: 21px;
+  padding: 4px 12px;
+  background-color: var(--color-light-blue);
+  width: 88.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.contenido-imagen-datos-adjuntos a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+.imagen-eliminar {
+  width: 25px;
+  border: 1px dashed var(--color-white);
+  cursor: pointer;
+}
 .boton-enviar {
   width: 100px;
   height: 30px;
@@ -646,4 +667,34 @@ tbody {
 }
 .imagen-check-datos-eviados {
   width: 150px;
+}
+
+/* estilos para la seccion modal*/
+#modal-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.8)
+}
+.modal-container {
+  max-width: 450px;
+  max-height: 90%;
+  padding: 20px;
+  background-color: var(--color-white);
+  border-radius: 10px;
+}
+
+.boton-cerrar {
+  cursor: pointer;
+  text-align: end;
+  color: var(--color-red);
+  padding-bottom: 10px;
+}
+.mensaje-eliminado {
+  color: var(--color-red);
 }
