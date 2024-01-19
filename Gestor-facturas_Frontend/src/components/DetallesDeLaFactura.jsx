@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Navegacion from './Navegacion';
 import { Link } from 'react-router-dom';
 import imagenes from './imagenes';
+import { Modal } from "./Modal";
 
 
 export default function DetallesDeLaFactura() {
@@ -17,25 +18,27 @@ export default function DetallesDeLaFactura() {
     const [auxiliarSeleccionado, setAuxiliarSeleccionado] = useState('');
     const [agregarComentario, setAgregarComentario] = useState('');
     const [agregarArchivos, setAgregarArchivos] = useState([]);
+    const [archivoAdjuntoEliminado, setArchivoAdjuntoEliminado] = useState(false);
+    const [mostrarModal, setMostrarModal] = useState(false);
 
+
+    const fetchData = async () => {
+        try {
+            const response = await fetch(`https://jolusuvi.pythonanywhere.com/api/documentos/?format=json`);
+            const data = await response.json();
+            const facturaEncontrada = data.find(factura => factura.NUMERO_FACTURA === numeroFactura);
+            setDetallesFactura(facturaEncontrada);
+            setFechaEntrega(!facturaEncontrada.FECHA_ENTREGA ? '' : facturaEncontrada.FECHA_ENTREGA);
+            setEstatusSeleccionado(!facturaEncontrada.ESTATUS ? '' : facturaEncontrada.ESTATUS);
+            // Establece el valor inicial del auxiliar seleccionado
+            setAuxiliarSeleccionado(!facturaEncontrada.PERSONAL_ASIGNADO_NOMBRE ? '' : facturaEncontrada.PERSONAL_ASIGNADO_NOMBRE);
+            setAgregarComentario(!facturaEncontrada.COMENTARIOS ? '' : facturaEncontrada.COMENTARIOS);
+
+        } catch (error) {
+            console.error('Error al obtener detalles de la factura:', error);
+        }
+    };
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(`https://jolusuvi.pythonanywhere.com/api/documentos/?format=json`);
-                const data = await response.json();
-                const facturaEncontrada = data.find(factura => factura.NUMERO_FACTURA === numeroFactura);
-                setDetallesFactura(facturaEncontrada);
-                setFechaEntrega(!facturaEncontrada.FECHA_ENTREGA ? '' : facturaEncontrada.FECHA_ENTREGA);
-                setEstatusSeleccionado(!facturaEncontrada.ESTATUS ? '' : facturaEncontrada.ESTATUS);
-                // Establece el valor inicial del auxiliar seleccionado
-                setAuxiliarSeleccionado(!facturaEncontrada.PERSONAL_ASIGNADO_NOMBRE ? '' : facturaEncontrada.PERSONAL_ASIGNADO_NOMBRE);
-                setAgregarComentario(!facturaEncontrada.COMENTARIOS ? '' : facturaEncontrada.COMENTARIOS);
-
-            } catch (error) {
-                console.error('Error al obtener detalles de la factura:', error);
-            }
-        };
-
         fetchData();
         showData();
     }, []);
@@ -115,21 +118,55 @@ export default function DetallesDeLaFactura() {
         setEstatusSeleccionado(estatus);
         setMostrarListaEstatus(false)
 
-        console.log(estatus)
     }
     // funcion para manejar la seleccion de auxiliares
     const handleSeleccionDeAuxiliares = (auxiliar) => {
         setAuxiliarSeleccionado(auxiliar)
         setMostrarListaAuxiliares(false)
-
-        console.log(auxiliar)
     }
 
     const handleAdjuntosChange = (event) => {
         const files = event.target.files;
         setAgregarArchivos(files);
+        setArchivoAdjuntoEliminado(false);
     };
 
+    const eliminarArchivoAdjunto = async () => {
+        try {
+            const formData = new FormData();
+            formData.append('DATOS_ADJUNTOS', '');
+
+            const requestOptions = {
+                method: 'PUT',
+                body: formData,
+            };
+
+            const response = await fetch(`https://jolusuvi.pythonanywhere.com/documentodetail/${detallesFactura.ID}/`, requestOptions);
+            const result = await response.json();
+            console.log(result);
+
+            // Actualizar la vista después de eliminar el adjunto y cambiar el estado
+            
+            fetchData();
+            setArchivoAdjuntoEliminado(true);
+            setTimeout(() => {
+                abrirModal();
+            }, 100);
+        } catch (error) {
+            console.error('Error al eliminar el archivo adjunto:', error);
+        }
+    };
+
+
+    const abrirModal = () => {
+        setMostrarModal(true);
+        console.log('abrir modal')
+    };
+
+    const cerrarModal = () => {
+        setMostrarModal(false);
+        console.log('cerrar modal')
+    };
     // cambiar color estado
     let estadoClase;
     if (detallesFactura.ESTADO === 'ACT') {
@@ -273,8 +310,19 @@ export default function DetallesDeLaFactura() {
                             multiple
                         />
                     </form>
+                    <div className='contenido-imagen-datos-adjuntos' style={(archivoAdjuntoEliminado || detallesFactura.DATOS_ADJUNTOS === null) ? { display: 'none' } : { display: '' }}>
+                        <a href={detallesFactura.DATOS_ADJUNTOS}>{detallesFactura.DATOS_ADJUNTOS}</a>
+                        <img
+                            className='imagen-eliminar'
+                            src={imagenes['img-eliminar']}
+                            alt="icono eliminar"
+                            onClick={eliminarArchivoAdjunto}
+                        />
+                    </div>
+
                 </div>
             </div>
+            <Modal visible={mostrarModal} onClose={cerrarModal} />
             <button className='boton-enviar' onClick={handleEnviar}>enviar</button>
         </div>
     );
