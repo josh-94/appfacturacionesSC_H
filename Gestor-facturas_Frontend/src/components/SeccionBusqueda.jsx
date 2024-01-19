@@ -101,7 +101,7 @@ export default function SeccionBusqueda() {
     return (
         <div>
             <Navegacion
-                titulo="Factiración App Distribuciones"
+                titulo="Facturación App Distribuciones"
                 regreso="Regreso"
             />
 
